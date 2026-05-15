@@ -2,7 +2,11 @@
 class AppConstants {
   const AppConstants._();
 
-  // ── Hive cache ────────────────────────────────────────────────────────
+  // ── Hive box names ────────────────────────────────────────────────────
+  static const String productsBoxName = 'products_box';
+  static const String favoritesBoxName = 'favorites_box';
+
+  // ── Hive cache keys ────────────────────────────────────────────────────
   static const String productsCacheKey = 'cached_products';
   static const String favoritesKey = 'favorite_ids';
 
