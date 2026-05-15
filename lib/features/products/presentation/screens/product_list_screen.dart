@@ -7,7 +7,7 @@ import '../providers/product_providers.dart';
 import '../widgets/empty_view.dart';
 import '../widgets/error_view.dart';
 import '../widgets/offline_banner.dart';
-import '../widgets/product_card.dart';
+import '../widgets/product_card_widget.dart';
 import '../widgets/product_skeleton.dart';
 
 /// The first screen: a scrollable grid of products with pull-to-refresh,
@@ -79,7 +79,7 @@ class ProductListScreen extends ConsumerWidget {
                     ),
                     itemBuilder: (context, index) {
                       final product = result.products[index];
-                      return ProductCard(
+                      return ProductCardWidget(
                         product: product,
                         onTap: () =>
                             context.push('/product/${product.id}'),
