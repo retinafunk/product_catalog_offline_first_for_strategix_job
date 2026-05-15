@@ -26,3 +26,14 @@ class ProductListResult {
   final List<Product> products;
 }
 
+/// Derives a single [Product] from [productListProvider] by matching [id].
+/// Returns `null` when the list is still loading or the product is not found.
+final productByIdProvider =
+    Provider.autoDispose.family<Product?, int>((ref, id) {
+  return ref
+      .watch(productListProvider)
+      .valueOrNull
+      ?.products
+      .cast<Product?>()
+      .firstWhere((p) => p?.id == id, orElse: () => null);
+});
