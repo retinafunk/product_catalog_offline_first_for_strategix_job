@@ -1,37 +1,39 @@
-class ProductsRepository
-{
-  final ProductsApi api = ProductsApi();
-  late final cachedProductsInLocalStore localCache;
+import '../models/productModel.dart';
+import '../../domain-logic/entities/product_entity.dart';
 
-  get freshNewProducts => null;
+abstract class ProductsApi {
+  Future<List<ProductModel>> fetchProducts();
+}
+
+abstract class ProductsLocalCache {
+  Future<void> saveProducts(List<ProductModel> products);
+  Future<List<ProductModel>> getProducts();
+}
+
+class ProductsRepository {
+  const ProductsRepository({
+    required this.api,
+    required this.localCache,
+  });
+
+  final ProductsApi api;
+  final ProductsLocalCache localCache;
 
   Future<List<Product>> getAllProducts() async {
     try {
-      final freshNewProducts = await api.fetchProducts();
+      final freshProducts = await api.fetchProducts();
 
-      await cachedProductsInLocalStore.saveProducts(freshNewProducts);
+      await localCache.saveProducts(freshProducts);
 
-      return freshNewProducts;
+      return freshProducts.map((product) => product.toEntity()).toList();
     } catch (_) {
-      final cachedProductsInLocalStore = await freshNewProducts.getProducts();
+      final cachedProducts = await localCache.getProducts();
 
-      if (cachedProductsInLocalStore.isNotEmpty) {
-        return cachedProductsInLocalStore;
+      if (cachedProducts.isNotEmpty) {
+        return cachedProducts.map((product) => product.toEntity()).toList();
       }
 
       rethrow;
     }
   }
-
-}
-
-class Product {
-}
-
-class cachedProductsInLocalStore {
-  static saveProducts(remoteProducts) {}
-}
-
-class ProductsApi {
-  fetchProducts() {}
 }
