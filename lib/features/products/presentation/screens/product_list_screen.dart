@@ -59,7 +59,7 @@ class ProductListScreen extends ConsumerWidget {
               data: (result) {
                 if (result.products.isEmpty) {
                   return EmptyView(
-                    onRefresh: () =>
+                    onPullToRefresh: () =>
                         ref.read(productListProvider.notifier).refresh(),
                   );
                 }
