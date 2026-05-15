@@ -13,5 +13,8 @@ class ConnectivityService {
     final result = await _connectivity.checkConnectivity();
     return result.any((status) => status != ConnectivityResult.none);
   }
-}
 
+  /// Emits connectivity changes from the platform layer.
+  Stream<List<ConnectivityResult>> get onConnectivityChanged =>
+      _connectivity.onConnectivityChanged;
+}
