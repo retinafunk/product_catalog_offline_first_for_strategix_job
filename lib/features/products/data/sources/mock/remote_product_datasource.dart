@@ -2,9 +2,9 @@ import 'package:dio/dio.dart';
 
 import '../../core/constants/app_constants.dart';
 import '../../core/errors/app_exception.dart';
-import '../../models/product_model.dart';
+import '../../models/productModel.dart';
 
-/// Contract for the remote product data source.
+/// Class  the remote product data source.
 abstract class RemoteProductDatasource {
   Future<List<ProductModel>> fetchProducts({
     int limit = AppConstants.productsLimit,
@@ -15,14 +15,15 @@ abstract class RemoteProductDatasource {
 /// Fetches products from the DummyJSON REST API.
 class RemoteProductDatasourceImpl implements RemoteProductDatasource {
   RemoteProductDatasourceImpl({Dio? dio})
-      : _dio = dio ??
-            Dio(
-              BaseOptions(
-                baseUrl: AppConstants.baseUrl,
-                connectTimeout: AppConstants.connectTimeout,
-                receiveTimeout: AppConstants.receiveTimeout,
-              ),
-            );
+    : _dio =
+          dio ??
+          Dio(
+            BaseOptions(
+              baseUrl: AppConstants.baseUrl,
+              connectTimeout: AppConstants.connectTimeout,
+              receiveTimeout: AppConstants.receiveTimeout,
+            ),
+          );
 
   final Dio _dio;
 
@@ -38,7 +39,8 @@ class RemoteProductDatasourceImpl implements RemoteProductDatasource {
       );
 
       final data = response.data;
-      if (data == null) throw const ServerException('Empty response from server.');
+      if (data == null)
+        throw const ServerException('Empty response from server.');
 
       final productsJson = data['products'] as List<dynamic>?;
       if (productsJson == null) {
@@ -58,4 +60,3 @@ class RemoteProductDatasourceImpl implements RemoteProductDatasource {
     }
   }
 }
-

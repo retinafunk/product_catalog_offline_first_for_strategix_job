@@ -6,14 +6,12 @@ import '../../core/constants/app_constants.dart';
 import '../../core/errors/app_exception.dart';
 import '../../models/product_model.dart';
 
-/// Contract for the local product cache.
 abstract class LocalProductDatasource {
   Future<List<ProductModel>?> getCachedProducts();
   Future<void> cacheProducts(List<ProductModel> products);
 }
 
-/// Persists and retrieves the product list as a JSON string inside a Hive box.
-///
+
 /// Storing the serialised JSON manually means we don't need Hive code
 /// generation (TypeAdapters) while still benefiting from Hive's fast binary
 /// storage.
