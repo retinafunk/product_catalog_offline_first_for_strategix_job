@@ -4,6 +4,7 @@ class AppConstants {
 
   // ── Hive cache ────────────────────────────────────────────────────────
   static const String productsCacheKey = 'cached_products';
+  static const String favoritesKey = 'favorite_ids';
 
   // ── DummyJSON REST API ────────────────────────────────────────────────
   static const String baseUrl = 'https://dummyjson.com';
