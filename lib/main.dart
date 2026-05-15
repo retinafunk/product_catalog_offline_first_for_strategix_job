@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'features/products/data/core/constants/app_constants.dart';
-import 'features/products/data/providers/router_provider.dart';
+import 'features/navigation_router/app_nav_router.dart';
 
 
 Future<void> main() async {
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         cardTheme: const CardThemeData(surfaceTintColor: Colors.transparent),
         appBarTheme: const AppBarTheme(centerTitle: true),
       ),
-      routerConfig: appRouter,
+      routerConfig: appNavRouter,
     );
   }
 }
