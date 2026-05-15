@@ -10,7 +10,6 @@ abstract class FavoritesLocalDatasource {
 }
 
 /// Persists and retrieves favorite product IDs in a Hive box.
-///
 /// Hive supports storing [List] natively so no JSON serialisation is needed.
 class FavoritesLocalDatasourceImpl implements FavoritesLocalDatasource {
   FavoritesLocalDatasourceImpl(this._box);
