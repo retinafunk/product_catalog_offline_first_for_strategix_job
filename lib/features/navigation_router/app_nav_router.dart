@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../products/presentation/screens/product_details.dart';
 import '../products/presentation/screens/product_list_screen.dart';
 
 /// Centralised routing configuration using [GoRouter].
@@ -17,10 +17,7 @@ final appNavRouter = GoRouter(
                   state.pathParameters['id'] ?? '',
                 ) ??
                 0;
-            return Scaffold(
-              appBar: AppBar(title: const Text('Product Details')),
-              body: Center(child: Text('Product ID: $id')),
-            );
+            return ProductDetailsScreen(productId: id);
           },
         ),
       ],
