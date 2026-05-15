@@ -3,13 +3,13 @@ import 'package:hive/hive.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/errors/app_exception.dart';
 
-/// Contract for the local favorites store.
+
 abstract class FavoritesLocalDatasource {
   Set<int> getFavorites();
   Future<void> saveFavorites(Set<int> favorites);
 }
 
-/// Persists and retrieves favorite product IDs in a Hive box.
+///  and retrieves & persists / cache favorite product IDs in a Hive box.
 /// Hive supports storing [List] natively so no JSON serialisation is needed.
 class FavoritesLocalDatasourceImpl implements FavoritesLocalDatasource {
   FavoritesLocalDatasourceImpl(this._box);
