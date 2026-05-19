@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'common/constants/app_constants.dart';
-import 'features/navigation_router/app_nav_router.dart';
-
+import 'router/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,10 +30,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
-        cardTheme: const CardThemeData(surfaceTintColor: Colors.transparent),
+        cardTheme: const CardThemeData(
+          surfaceTintColor: Colors.transparent,
+        ),
         appBarTheme: const AppBarTheme(centerTitle: true),
       ),
-      routerConfig: appNavRouter,
+      routerConfig: appRouter,
     );
   }
 }

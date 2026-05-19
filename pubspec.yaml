@@ -41,8 +41,10 @@ dependencies:
   # Connectivity detection
   connectivity_plus: ^6.1.4
 
+  # Image caching
+  cached_network_image: ^3.4.1
 
-  # Local persistence of products mock API data & favourites for offline-first
+  # Local cache of products mock API data & favourites for offline-first
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 
