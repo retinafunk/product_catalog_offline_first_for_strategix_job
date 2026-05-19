@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 
-import '../../core/constants/app_constants.dart';
-import '../../core/errors/app_exception.dart';
+
+import '../../../../../common/constants/app_constants.dart';
+import '../../../../../common/errors/app_exception.dart';
 import '../../models/productModel.dart';
 
 /// Class  the remote product data source.

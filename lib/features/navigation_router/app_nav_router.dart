@@ -24,6 +24,3 @@ final appNavRouter = GoRouter(
     ),
   ],
 );
-
-
-

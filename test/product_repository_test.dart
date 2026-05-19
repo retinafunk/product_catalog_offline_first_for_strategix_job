@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:product_catalog_offline_first_for_strategix_job/common/errors/app_exception.dart';
+    ?.map((e) => e as String)
 
-import 'package:product_catalog_offline_first_for_strategix_job/features/products/data/core/errors/app_exception.dart';
-import 'package:product_catalog_offline_first_for_strategix_job/features/products/data/core/network/connectivity_service.dart';
 import 'package:product_catalog_offline_first_for_strategix_job/features/products/data/models/product_model.dart';
 import 'package:product_catalog_offline_first_for_strategix_job/features/products/data/repositories/product_repository_impl.dart';
 import 'package:product_catalog_offline_first_for_strategix_job/features/products/data/sources/mock/local_product_datasource.dart';

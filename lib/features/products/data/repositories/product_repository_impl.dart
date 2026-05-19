@@ -1,6 +1,6 @@
 import '../../domain-logic/entities/product_entity.dart';
 import '../../domain-logic/repositories/products-repo.dart';
-import '../core/network/connectivity_service.dart';
+import '../../../../common//network/connectivity_service.dart';
 import '../sources/mock/local_product_datasource.dart';
 import '../sources/mock/remote_product_datasource.dart';
 

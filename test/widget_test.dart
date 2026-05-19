@@ -8,7 +8,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:offline_products_catalog_app_github_copilot/main.dart';
+
+import 'package:product_catalog_offline_first_for_strategix_job/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

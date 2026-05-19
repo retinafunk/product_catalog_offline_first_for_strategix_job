@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 
-import '../core/constants/app_constants.dart';
-import '../core/network/connectivity_service.dart';
+
+import '../../../../common/constants/app_constants.dart';
+import '../../../../common//network/connectivity_service.dart';
 import '../sources/mock/favorites_local_datasource.dart';
 import '../sources/mock/local_product_datasource.dart';
 import '../sources/mock/remote_product_datasource.dart';

@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:hive/hive.dart';
 
-import '../../core/constants/app_constants.dart';
-import '../../core/errors/app_exception.dart';
+
+import '../../../../../common/constants/app_constants.dart';
+import '../../../../../common/errors/app_exception.dart';
 import '../../models/product_model.dart';
 
 abstract class LocalProductDatasource {

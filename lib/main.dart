@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'features/products/data/core/constants/app_constants.dart';
+import 'common/constants/app_constants.dart';
 import 'features/navigation_router/app_nav_router.dart';
 
 
