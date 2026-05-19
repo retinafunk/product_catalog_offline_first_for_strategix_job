@@ -12,6 +12,7 @@ Future<void> main() async {
   await Hive.initFlutter();
   await Hive.openBox<dynamic>(AppConstants.productsBoxName);
   await Hive.openBox<dynamic>(AppConstants.favoritesBoxName);
+  await Hive.openBox<dynamic>(AppConstants.imagesBoxName);
 
   runApp(
     // ProviderScope is the root of the Riverpod dependency graph.

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -6,6 +5,7 @@ import '../../domain/entities/product.dart';
 import '../providers/favorites_provider.dart';
 import '../providers/product_providers.dart';
 import '../widgets/error_view.dart';
+import '../widgets/offline_cached_image.dart';
 
 /// Displays the full details of a product and allows toggling the favorite
 /// state. Pulls data from the already-loaded product list so no extra request
@@ -92,17 +92,17 @@ class _ProductDetailView extends ConsumerWidget {
             // ── Hero image ─────────────────────────────────────────────────
             Hero(
               tag: 'product-image-${product.id}',
-              child: CachedNetworkImage(
+              child: OfflineCachedImage(
                 imageUrl: product.thumbnail,
                 height: 280,
                 width: double.infinity,
                 fit: BoxFit.cover,
-                placeholder: (_, __) => Container(
+                placeholderBuilder: (_) => Container(
                   height: 280,
                   color: Colors.grey.shade200,
                   child: const Center(child: CircularProgressIndicator()),
                 ),
-                errorWidget: (_, __, ___) => Container(
+                errorBuilder: (_) => Container(
                   height: 280,
                   color: Colors.grey.shade200,
                   child: const Icon(Icons.broken_image,
@@ -201,12 +201,12 @@ class _ProductDetailView extends ConsumerWidget {
                         separatorBuilder: (_, __) => const SizedBox(width: 8),
                         itemBuilder: (_, i) => ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: CachedNetworkImage(
+                          child: OfflineCachedImage(
                             imageUrl: product.images[i],
                             width: 100,
                             height: 100,
                             fit: BoxFit.cover,
-                            errorWidget: (_, __, ___) => Container(
+                            errorBuilder: (_) => Container(
                               width: 100,
                               color: Colors.grey.shade200,
                               child: const Icon(Icons.broken_image,
@@ -226,4 +226,3 @@ class _ProductDetailView extends ConsumerWidget {
     );
   }
 }
-

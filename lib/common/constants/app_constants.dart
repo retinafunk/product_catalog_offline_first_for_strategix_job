@@ -10,6 +10,7 @@ class AppConstants {
   // ── Hive box names ────────────────────────────────────────────────────────
   static const String productsBoxName = 'products_box';
   static const String favoritesBoxName = 'favorites_box';
+  static const String imagesBoxName = 'images_box';
 
   // ── Hive keys ─────────────────────────────────────────────────────────────
   static const String productsCacheKey = 'products_cache';
@@ -19,4 +20,3 @@ class AppConstants {
   static const Duration connectTimeout = Duration(seconds: 10);
   static const Duration receiveTimeout = Duration(seconds: 15);
 }
-

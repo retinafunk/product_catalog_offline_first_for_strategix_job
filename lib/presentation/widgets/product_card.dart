@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/product.dart';
+import 'offline_cached_image.dart';
 
 /// Card widget displayed in the product grid.
 ///
@@ -34,17 +34,17 @@ class ProductCard extends StatelessWidget {
             Expanded(
               child: Hero(
                 tag: 'product-image-${product.id}',
-                child: CachedNetworkImage(
+                child: OfflineCachedImage(
                   imageUrl: product.thumbnail,
                   fit: BoxFit.cover,
                   width: double.infinity,
-                  placeholder: (_, __) => Container(
+                  placeholderBuilder: (_) => Container(
                     color: Colors.grey.shade200,
                     child: const Center(
                       child: CircularProgressIndicator(strokeWidth: 2),
                     ),
                   ),
-                  errorWidget: (_, __, ___) => Container(
+                  errorBuilder: (_) => Container(
                     color: Colors.grey.shade200,
                     child: const Icon(Icons.broken_image, color: Colors.grey),
                   ),
@@ -90,4 +90,3 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
-

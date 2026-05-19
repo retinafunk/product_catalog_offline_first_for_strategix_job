@@ -24,3 +24,9 @@ we are offline* / no internet connection:
 1. TRY to Read (mock) products list from local storage / hive /  database
 2. Show cached products list / grid  immediately
 3. Display offline (toast widget or small offline state banner
+
+## Web offline notes
+
+- App shell offline requires a release build so the service worker is registered.
+- Product images are cached locally in Hive (IndexedDB on web) after they load.
+- Open the app once online so images are stored, then reload while offline.
